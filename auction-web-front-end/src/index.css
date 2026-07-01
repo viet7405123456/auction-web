@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+button:hover {
+	cursor: pointer;
+}
+
+button:disabled:hover {
+	cursor: not-allowed;
+}
+
+.rolling-price {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.02em;
+	font-variant-numeric: tabular-nums;
+	line-height: 1;
+}
+
+.rolling-separator {
+	font-size: 0.9em;
+	opacity: 0.7;
+	transform: translateY(-0.04em);
+}
+
+.rolling-digit-window {
+	display: inline-flex;
+	height: 1.15em;
+	width: 0.72em;
+	overflow: hidden;
+	border-radius: 0.15em;
+	background: linear-gradient(180deg, rgba(15, 23, 42, 0.06), rgba(15, 23, 42, 0.12));
+}
+
+.rolling-digit-strip {
+	display: flex;
+	flex-direction: column;
+	transition-property: transform;
+	transition-timing-function: cubic-bezier(0.2, 0.9, 0.18, 1);
+}
+
+.rolling-digit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 1.15em;
+	width: 0.72em;
+}
+
+.bid-feed-item-enter {
+	animation: bidFeedDrop 0.45s ease-out;
+}
+
+.toast-slide-in {
+	animation: toastSlideDown 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toast-check-badge {
+	display: inline-flex;
+	height: 22px;
+	width: 22px;
+	align-items: center;
+	justify-content: center;
+}
+
+.toast-check-circle {
+	stroke-dasharray: 63;
+	stroke-dashoffset: 63;
+	animation: toastCircleDraw 0.55s ease-out forwards;
+}
+
+.toast-check-path {
+	stroke-dasharray: 16;
+	stroke-dashoffset: 16;
+	animation: toastCheckDraw 0.3s ease-out 0.56s forwards;
+}
+
+@keyframes bidFeedDrop {
+	0% {
+		transform: translateY(-14px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes toastSlideDown {
+	0% {
+		transform: translateY(-18px) scale(0.98);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0) scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes toastCircleDraw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes toastCheckDraw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
