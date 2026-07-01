@@ -1,0 +1,55 @@
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+spring:
+  application:
+    name: auction-web
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 5MB
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/auction_db}
+    username: ${DB_USERNAME:test_db}
+    password: ${DB_PASSWORD:123456}
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+jwt:
+  expiryMinutes: 30
+  expiryDay: 5
+  accesskey: ${JWT_ACCESS_KEY:pY4GrNdB/BNb2X0lpNmz49xuHW+dQe8wviqM3ZOR+dw=}
+  refreshkey: ${JWT_REFRESH_KEY:yHVc2NBVIYjcMBDzuA7BuBYPgcFpyhJ9Kwj6W2S1Z30=}
+  resetkey: ${JWT_RESET_KEY:yHVc2NBVIYjcMBDzuA7BuBYPgcFpyhJ9Kwj6W2S1Z30=}
+
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME:desiuftqv}
+  api-key: ${CLOUDINARY_API_KEY:656399349875858}
+  api-secret: ${CLOUDINARY_API_SECRET:yMIoRvUKNAVp-mIP2jV5LNFSFtg}
+
+logging:
+  level:
+    com.example.auction_web: DEBUG
+    org.springframework.web.socket: DEBUG
+    org.springframework.messaging: INFO
+    org.springframework.transaction.event: DEBUG
