@@ -1,0 +1,17 @@
+.vscode/
+
+# Node / Vite
+node_modules/
+dist/
+build/
+coverage/
+*.log
+
+# Java / Maven
+target/
+.idea/
+*.iml
+
+# Env files
+.env
+.env.*
