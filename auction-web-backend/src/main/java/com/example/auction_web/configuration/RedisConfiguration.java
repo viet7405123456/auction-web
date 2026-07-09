@@ -1,5 +1,7 @@
 package com.example.auction_web.configuration;
 
+import java.beans.BeanProperty;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
